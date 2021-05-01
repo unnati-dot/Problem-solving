@@ -25,12 +25,6 @@ void display(vector<vector<bool>> &grid,int n){
         cout<<"\n";
     }
 }
-
-
-
-
-
-
 void countNknight(vector<vector<bool>> &grid,int cur_row,int cur_col ,int n,int count){
     if(count == n){
         knightcount++;
@@ -50,10 +44,7 @@ void countNknight(vector<vector<bool>> &grid,int cur_row,int cur_col ,int n,int 
         }
        
     }
-    
-    
-    
-}
+    }
 
 int main(){
     int n;
