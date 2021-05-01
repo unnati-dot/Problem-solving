@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+//using bitset it will take o(1) time instead of o(n)
 bitset<100> col,ld,rd;
 //ld is for left diagonal and rd is for right diagonal
 int ans=0;
@@ -20,9 +20,6 @@ void nqueenopt(int n,int cr){
     
     
 }
-
-
-
 int main() {
 int n;
 cin>>n;
