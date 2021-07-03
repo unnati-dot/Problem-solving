@@ -26,17 +26,45 @@ using namespace std;
 mt19937                 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 //typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;
+int ternarySearch(int arr[], int n, int target) {
+	int l = 0, r = n - 1;
+	while (l <= r) {
+		int m1 = l + (r - l) / 3;
+		int m2 = r - (r - l) / 3;
+		if (arr[m1] == target) return m1;
+		if (arr[m2] == target) return m2;
+		if (arr[m1] > target) r = m1 - 1;
+		else if (arr[m2] < target) l = m2 + 1;
+		else {
+			l = m1 + 1;
+			r = m2 - 1;
+		}
+	}
+
+	return -1;
+
+}
+
 
 int32_t main()
 {
 #ifndef ONLINE_JUDGE
 
 //for getting input from input.txt
-   freopen("input.txt", "r", stdin);
+	freopen("input.txt", "r", stdin);
 //for getting output to output.txt
-   freopen("output.txt", "w", stdout);
+	freopen("output.txt", "w", stdout);
 
 #endif
-
-   return 0;
+	int n;
+	cin >> n;
+	int target;
+	int arr[n + 1];
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
+	}
+	cin >> target;
+	int ans = ternarySearch(arr, n, target);
+	cout << ans;
+	return 0;
 }
